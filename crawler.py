@@ -7,7 +7,7 @@ from fake_useragent import UserAgent
 headers = {'User-Agent': UserAgent().firefox}
 data_directory = 'data'
 twic_url = 'https://theweekinchess.com/twic'
-
+delay = 3
 
 def read_main_page():
     resp = requests.get(twic_url, headers=headers)
@@ -41,8 +41,8 @@ def main():
             sites_to_download.append((filename, site))
 
     for idx, (filename, site) in enumerate(sites_to_download):
-        print('wait 3 seconds before download')
-        time.sleep(3)
+        print(f'wait {delay} seconds before download')
+        time.sleep(delay)
         print(f'download [{idx+1}/{len(sites_to_download)}] {site} '
               'save to {filename}')
         resp = requests.get(site, headers=headers)
