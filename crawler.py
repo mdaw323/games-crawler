@@ -34,7 +34,7 @@ def main():
              for site in re.findall(r'https.*g.zip', f)]
     sites_to_download = []
     print(f'Total weeks found: {len(sites)}, '
-          'missing weeks to download: {len(sites_to_download)}')
+          f'missing weeks to download: {len(sites_to_download)}')
 
     for filename, site in sites:
         if not file_exists(filename):

@@ -2,3 +2,13 @@
 
 * Recent chess games are published in [The Week in Chess](https://theweekinchess.com/twic) magazine.
 * Crawler respects politeness policy to avoid overloading website. It downloads files only once, one by one, with 3s delay between files.
+
+Setup:
+```bash
+pipenv install --dev
+```
+
+Usage:
+```bash
+pipenv run python crawler.py
+```
