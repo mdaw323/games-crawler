@@ -9,6 +9,7 @@ data_directory = 'data'
 twic_url = 'https://theweekinchess.com/twic'
 delay = 3
 
+
 def read_main_page():
     resp = requests.get(twic_url, headers=headers)
     if resp.status_code == 200:
