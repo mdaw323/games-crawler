@@ -40,7 +40,7 @@ def main():
             sites_to_download.append((filename, site))
 
     for idx, (filename, site) in enumerate(sites_to_download):
-        print(f'wait 3 seconds before download')
+        print('wait 3 seconds before download')
         time.sleep(3)
         print(f'download [{idx+1}/{len(sites_to_download)}] {site} '
               'save to {filename}')
