@@ -6,10 +6,11 @@ from fake_useragent import UserAgent
 
 headers = {'User-Agent': UserAgent().firefox}
 data_directory = 'data'
+twic_url = 'https://theweekinchess.com/twic'
 
 
 def read_main_page():
-    resp = requests.get("https://theweekinchess.com/twic", headers=headers)
+    resp = requests.get(twic_url, headers=headers)
     if resp.status_code == 200:
         return resp.text
 
