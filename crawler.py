@@ -6,7 +6,7 @@ from fake_useragent import UserAgent
 
 headers = {'User-Agent': UserAgent().firefox}
 data_directory = 'data'
-twic_url = 'https://theweekinchess.com/twic'
+twic_url = 'https://theweekinchess.com/twic.html/twic'
 delay = 3
 
 
@@ -14,6 +14,8 @@ def read_main_page():
     resp = requests.get(twic_url, headers=headers)
     if resp.status_code == 200:
         return resp.text
+    else:
+        print(f'invalid status: {resp.status_code}')
 
 
 def read_response_from_file():
@@ -34,12 +36,13 @@ def main():
     sites = [(site.split('/')[-1], site)
              for site in re.findall(r'https.*g.zip', f)]
     sites_to_download = []
-    print(f'Total weeks found: {len(sites)}, '
-          f'missing weeks to download: {len(sites_to_download)}')
 
     for filename, site in sites:
         if not file_exists(filename):
             sites_to_download.append((filename, site))
+
+    print(f'Total weeks found: {len(sites)}, '
+          f'missing weeks to download: {len(sites_to_download)}')
 
     for idx, (filename, site) in enumerate(sites_to_download):
         print(f'wait {delay} seconds before download')
